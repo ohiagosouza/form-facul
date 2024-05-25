@@ -1,0 +1,6 @@
+.menuTop {
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}

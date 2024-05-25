@@ -1,0 +1,45 @@
+<div>
+  <h1 class="title">Client Sing Up</h1>
+  <div class="container">
+    <form class="singUpForm" (ngSubmit)="saveClient()">
+      <mat-form-field class="field">
+        <mat-label>Name</mat-label>
+        <input matInput name="clientName" [(ngModel)]="client.name" />
+      </mat-form-field>
+
+      <mat-form-field class="field">
+        <mat-label>Email</mat-label>
+        <input
+          type="email"
+          matInput
+          placeholder="name@example.com"
+          [(ngModel)]="client.email"
+          name="clientEmail"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          [(ngModel)]="client.password"
+          name="clientPassword"
+          id="clientPassword"
+        />
+        <a
+          mat-icon-button
+          matSuffix
+          (click)="clickEvent($event)"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </a>
+      </mat-form-field>
+      <button type="submit" mat-flat-button color="primary" class="btnSave">
+        Send
+      </button>
+    </form>
+  </div>
+</div>

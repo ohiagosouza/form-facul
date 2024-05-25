@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.singUpForm {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.singUpForm > mat-form-field {
+  width: 350px;
+  margin: 0;
+  padding: 0;
+}
+
+.error {
+  color: #e70000;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  text-align: center;
+}
+
+.btnSave {
+  height: 3rem;
+  /* width: 350px; */
+}
