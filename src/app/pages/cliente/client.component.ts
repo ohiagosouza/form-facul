@@ -9,8 +9,8 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-cliente',
   standalone: true,
-  templateUrl: './cliente.component.html',
-  styleUrl: './cliente.component.css',
+  templateUrl: './client.component.html',
+  styleUrl: './client.component.css',
   imports: [
     HeaderComponent,
     MatFormFieldModule,
@@ -20,7 +20,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule,
   ],
 })
-export class ClienteComponent {
+export class ClientComponent {
   client: any = {};
 
   hide = true;

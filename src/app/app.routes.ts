@@ -1,14 +1,14 @@
 import { Routes } from '@angular/router';
-import { ClienteComponent } from './pages/cliente/cliente.component';
-import { EmployeeComponent } from './pages/employee/employee.component';
+import { ClientComponent } from './pages/cliente/client.component';
+import { CompanyComponent } from './pages/business/company.component';
 
 export const routes: Routes = [
   {
-    path: 'clients',
-    component: ClienteComponent,
+    path: 'client',
+    component: ClientComponent,
   },
   {
-    path: 'employee',
-    component: EmployeeComponent,
+    path: 'company',
+    component: CompanyComponent,
   },
 ];

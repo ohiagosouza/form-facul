@@ -1,20 +1,20 @@
 <div>
-  <h1 class="title">Employee Sing Up</h1>
+  <h1 class="title">Company Sing Up</h1>
   <div class="container">
     <form [formGroup]="formGroup" class="singUpForm" (ngSubmit)="saveClient()">
-      <mat-error class="error" *ngIf="isError('name', 'required')">
+      <mat-error class="error" *ngIf="isError('companyName', 'required')">
         O nome é obrigatório
       </mat-error>
 
       <mat-form-field class="field">
         <mat-label>Name</mat-label>
-        <input matInput name="name" formControlName="name" />
+        <input matInput name="name" formControlName="companyName" />
       </mat-form-field>
 
-      <mat-error class="error" *ngIf="isError('email', 'required')">
+      <mat-error class="error" *ngIf="isError('companyEmail', 'required')">
         O email é obrigatório
       </mat-error>
-      <mat-error class="error" *ngIf="isError('email', 'email')">
+      <mat-error class="error" *ngIf="isError('companyEmail', 'email')">
         Por favor, insira um email válido
       </mat-error>
 
@@ -25,14 +25,30 @@
           matInput
           placeholder="name@example.com"
           name="email"
-          formControlName="email"
+          formControlName="companyEmail"
         />
       </mat-form-field>
 
-      <p class="error" *ngIf="isError('password', 'required')">
+      <mat-error class="error" *ngIf="isError('companyCNPJ', 'validateCNPJ')">
+        Por favor, insira um CNPJ válido
+      </mat-error>
+      <mat-form-field class="field">
+        <mat-label>CNPJ</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="00.000.000/0000-00"
+          name="cnpj"
+          formControlName="companyCNPJ"
+          maxlength="18"
+          mask="00.000.000/0000-00"
+        />
+      </mat-form-field>
+
+      <mat-error class="error" *ngIf="isError('companyPassword', 'required')">
         A senha é obrigatória
-      </p>
-      <mat-error *ngIf="formGroup.get('password')?.hasError('minlength')"
+      </mat-error>
+      <mat-error *ngIf="formGroup.get('companyPassword')?.hasError('minlength')"
         >A senha deve ter pelo menos 8 caracteres</mat-error
       >
 
@@ -41,9 +57,9 @@
         <input
           matInput
           [type]="hide ? 'password' : 'text'"
-          formControlName="password"
-          name="employeePassword"
-          id="employeePassword"
+          formControlName="companyPassword"
+          name="companyPassword"
+          id="companyPassword"
         />
         <a
           mat-icon-button

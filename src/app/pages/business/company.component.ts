@@ -11,9 +11,12 @@ import {
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
+import { validateCNPJ } from '../../validators/validatorCNPJ';
+import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
+import { Company } from '../../models/company';
 
 @Component({
-  selector: 'app-employee',
+  selector: 'app-company',
   standalone: true,
   imports: [
     MatFormFieldModule,
@@ -23,20 +26,27 @@ import { CommonModule } from '@angular/common';
     MatButtonModule,
     CommonModule,
     ReactiveFormsModule,
+    NgxMaskDirective,
+    NgxMaskPipe,
   ],
-  templateUrl: './employee.component.html',
-  styleUrl: './employee.component.css',
+  templateUrl: './company.component.html',
+  styleUrl: './company.component.css',
 })
-export class EmployeeComponent {
-  employees: any = {};
+export class CompanyComponent {
+  companys: any = {};
+
   constructor(private formBuilder: FormBuilder) {}
 
   formGroup = this.formBuilder.group({
-    name: ['', Validators.required],
+    companyName: ['', Validators.required],
 
-    email: ['', Validators.compose([Validators.required, Validators.email])],
+    companyEmail: [
+      '',
+      Validators.compose([Validators.required, Validators.email]),
+    ],
+    companyCNPJ: ['', validateCNPJ()],
 
-    password: [
+    companyPassword: [
       '',
       Validators.compose([Validators.required, Validators.minLength(8)]),
     ],
@@ -53,11 +63,14 @@ export class EmployeeComponent {
     if (this.formGroup.valid) {
       console.log(this.formGroup.value);
     } else {
-      console.log('Inválido');
+      alert('Formulário Inválido');
     }
   }
 
-  isError(control: 'name' | 'email' | 'password', validator: string) {
+  isError(
+    control: 'companyName' | 'companyEmail' | 'companyPassword' | 'companyCNPJ',
+    validator: string
+  ) {
     return this.formGroup.controls[control].getError(validator) ? true : false;
   }
 }
